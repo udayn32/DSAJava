@@ -16,6 +16,12 @@ pipeline {
                 bat 'mvn clean install test'
             }
         }
+        stage('Deploy') {
+            steps {
+                echo 'Running Java application...'
+                bat 'java -jar target/DSAJava-1.0-SNAPSHOT.jar'
+            }
+        }
     }
     post {
         always {
